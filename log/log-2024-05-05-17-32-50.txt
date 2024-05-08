@@ -1,0 +1,51 @@
+2024-05-05 17:32:50,630:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 17:32:50,697:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 17:32:50,760:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 17:32:50,795:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 17:32:50,799:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 17:32:50,869:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 17:32:51,065:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 17:32:51,354:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 32                                          |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 25                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 5                                           |
++------------------+---------------------------------------------+
+2024-05-05 17:33:12,684:INFO: Epoch: 0 batch: 10/9609(0.10%), loss: 11.7121, acc: 1.0
+2024-05-05 17:33:19,234:INFO: Epoch: 0 batch: 20/9609(0.21%), loss: 10.6837, acc: 1.0
+2024-05-05 17:33:25,763:INFO: Epoch: 0 batch: 30/9609(0.31%), loss: 7.50875, acc: 1.0
+2024-05-05 17:33:32,340:INFO: Epoch: 0 batch: 40/9609(0.42%), loss: 4.43884, acc: 1.0
+2024-05-05 17:33:38,895:INFO: Epoch: 0 batch: 50/9609(0.52%), loss: 1.97245, acc: 1.0
+2024-05-05 17:33:45,398:INFO: Epoch: 0 batch: 60/9609(0.62%), loss: 0.626463, acc: 1.0
+2024-05-05 17:33:51,923:INFO: Epoch: 0 batch: 70/9609(0.73%), loss: 0.213224, acc: 1.0
+2024-05-05 17:33:58,537:INFO: Epoch: 0 batch: 80/9609(0.83%), loss: 0.104198, acc: 1.0
+2024-05-05 17:34:05,083:INFO: Epoch: 0 batch: 90/9609(0.94%), loss: 0.0679895, acc: 1.0

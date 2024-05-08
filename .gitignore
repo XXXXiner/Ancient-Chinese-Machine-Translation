@@ -2,3 +2,7 @@
 /corpora
 /preprocessed
 *.pyc
+/models
+/AncientChinese
+*.pth
+/runs

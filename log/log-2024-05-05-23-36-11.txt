@@ -1,0 +1,66 @@
+2024-05-05 23:36:11,846:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 23:36:11,968:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 23:36:12,033:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 23:36:12,062:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 23:36:12,067:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 23:36:12,148:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 23:36:12,307:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 23:36:12,607:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 4                                           |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 5                                           |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 5                                           |
++------------------+---------------------------------------------+
+2024-05-05 23:36:19,871:INFO: Epoch: 0 batch: 10/250(4.00%), loss: 12.2135
+2024-05-05 23:36:20,309:INFO: Epoch: 0 batch: 20/250(8.00%), loss: 12.2042
+2024-05-05 23:36:20,797:INFO: Epoch: 0 batch: 30/250(12.00%), loss: 12.194
+2024-05-05 23:36:21,316:INFO: Epoch: 0 batch: 40/250(16.00%), loss: 12.1761
+2024-05-05 23:36:21,702:INFO: Epoch: 0 batch: 50/250(20.00%), loss: 12.1297
+2024-05-05 23:36:22,105:INFO: Epoch: 0 batch: 60/250(24.00%), loss: 12.0844
+2024-05-05 23:36:22,528:INFO: Epoch: 0 batch: 70/250(28.00%), loss: 11.9858
+2024-05-05 23:36:22,979:INFO: Epoch: 0 batch: 80/250(32.00%), loss: 10.9877
+2024-05-05 23:36:23,455:INFO: Epoch: 0 batch: 90/250(36.00%), loss: 9.18152
+2024-05-05 23:36:23,879:INFO: Epoch: 0 batch: 100/250(40.00%), loss: 7.96224
+2024-05-05 23:36:24,322:INFO: Epoch: 0 batch: 110/250(44.00%), loss: 7.33666
+2024-05-05 23:36:24,723:INFO: Epoch: 0 batch: 120/250(48.00%), loss: 7.0049
+2024-05-05 23:36:25,124:INFO: Epoch: 0 batch: 130/250(52.00%), loss: 7.04703
+2024-05-05 23:36:25,514:INFO: Epoch: 0 batch: 140/250(56.00%), loss: 6.7575
+2024-05-05 23:36:25,966:INFO: Epoch: 0 batch: 150/250(60.00%), loss: 7.16365
+2024-05-05 23:36:26,346:INFO: Epoch: 0 batch: 160/250(64.00%), loss: 6.46293
+2024-05-05 23:36:26,766:INFO: Epoch: 0 batch: 170/250(68.00%), loss: 6.6284
+2024-05-05 23:36:27,189:INFO: Epoch: 0 batch: 180/250(72.00%), loss: 6.93699
+2024-05-05 23:36:27,615:INFO: Epoch: 0 batch: 190/250(76.00%), loss: 6.76125
+2024-05-05 23:36:28,051:INFO: Epoch: 0 batch: 200/250(80.00%), loss: 6.47458
+2024-05-05 23:36:28,463:INFO: Epoch: 0 batch: 210/250(84.00%), loss: 6.72458
+2024-05-05 23:36:28,862:INFO: Epoch: 0 batch: 220/250(88.00%), loss: 6.58434
+2024-05-05 23:36:29,302:INFO: Epoch: 0 batch: 230/250(92.00%), loss: 6.41637
+2024-05-05 23:36:29,712:INFO: Epoch: 0 batch: 240/250(96.00%), loss: 6.65678

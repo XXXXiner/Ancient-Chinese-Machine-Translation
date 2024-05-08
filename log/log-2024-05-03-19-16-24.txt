@@ -1,0 +1,56 @@
+2024-05-03 19:16:24,022:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 48                                          |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 50                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 10                                          |
++------------------+---------------------------------------------+
+2024-05-03 19:16:36,909:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:16:37,011:DEBUG: https://s3.amazonaws.com:443 "HEAD /models.huggingface.co/bert/gpt2-vocab.json HTTP/1.1" 200 0
+2024-05-03 19:16:37,013:INFO: https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-vocab.json not found in cache or force_download set to True, downloading to /tmp/tmpcih5t0mz
+2024-05-03 19:16:37,014:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:16:37,107:DEBUG: https://s3.amazonaws.com:443 "GET /models.huggingface.co/bert/gpt2-vocab.json HTTP/1.1" 200 1042301
+2024-05-03 19:16:37,169:INFO: copying /tmp/tmpcih5t0mz to cache at /users/xzhao99/.cache/torch/transformers/f2808208f9bec2320371a9f5f891c184ae0b674ef866b79c58177067d15732dd.1512018be4ba4e8726e41b9145129dc30651ea4fec86aa61f4b9f40bf94eac71
+2024-05-03 19:16:37,178:INFO: creating metadata file for /users/xzhao99/.cache/torch/transformers/f2808208f9bec2320371a9f5f891c184ae0b674ef866b79c58177067d15732dd.1512018be4ba4e8726e41b9145129dc30651ea4fec86aa61f4b9f40bf94eac71
+2024-05-03 19:16:37,183:INFO: removing temp file /tmp/tmpcih5t0mz
+2024-05-03 19:16:37,186:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:16:37,288:DEBUG: https://s3.amazonaws.com:443 "HEAD /models.huggingface.co/bert/gpt2-merges.txt HTTP/1.1" 200 0
+2024-05-03 19:16:37,289:INFO: https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-merges.txt not found in cache or force_download set to True, downloading to /tmp/tmpiby8hqq1
+2024-05-03 19:16:37,290:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:16:37,378:DEBUG: https://s3.amazonaws.com:443 "GET /models.huggingface.co/bert/gpt2-merges.txt HTTP/1.1" 200 456318
+2024-05-03 19:16:37,425:INFO: copying /tmp/tmpiby8hqq1 to cache at /users/xzhao99/.cache/torch/transformers/d629f792e430b3c76a1291bb2766b0a047e36fae0588f9dbc1ae51decdff691b.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
+2024-05-03 19:16:37,430:INFO: creating metadata file for /users/xzhao99/.cache/torch/transformers/d629f792e430b3c76a1291bb2766b0a047e36fae0588f9dbc1ae51decdff691b.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
+2024-05-03 19:16:37,434:INFO: removing temp file /tmp/tmpiby8hqq1
+2024-05-03 19:16:37,436:INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-vocab.json from cache at /users/xzhao99/.cache/torch/transformers/f2808208f9bec2320371a9f5f891c184ae0b674ef866b79c58177067d15732dd.1512018be4ba4e8726e41b9145129dc30651ea4fec86aa61f4b9f40bf94eac71
+2024-05-03 19:16:37,436:INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-merges.txt from cache at /users/xzhao99/.cache/torch/transformers/d629f792e430b3c76a1291bb2766b0a047e36fae0588f9dbc1ae51decdff691b.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
+2024-05-03 19:16:37,500:INFO: Adding [Begin] to the vocabulary
+2024-05-03 19:16:37,500:INFO: Adding [Stop] to the vocabulary
+2024-05-03 19:16:37,501:INFO: Assigning ['[Begin]', '[Stop]'] to the additional_special_tokens key of the tokenizer

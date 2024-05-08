@@ -8,8 +8,10 @@ import numpy as np
 import torch
 import torch.optim as optim
 from torch.utils.tensorboard import SummaryWriter
+from torch.nn.utils.rnn import pad_sequence
 from terminaltables import AsciiTable
 
+from model_arch.Rnn import EncoderRNN, DecoderRNN, Seq2Seq, sequence_loss
 from model_arch.AttModel import AttModel
 from bleu import bleu
 from data_load import (
@@ -21,6 +23,7 @@ from data_load import (
 )
 from hyperparameters import Hyperparams as hp
 from utils import get_logger
+from transformers import BertTokenizer, GPT2LMHeadModel, GPT2Tokenizer
 
 # device
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -36,16 +39,38 @@ log_path = os.path.join(
 logger = get_logger(log_path)
 
 
+# Initialize tokenizer and GPT2 model once
+tokenizer = BertTokenizer.from_pretrained("uer/gpt2-chinese-ancient")
+gpt2_model = GPT2LMHeadModel.from_pretrained("uer/gpt2-chinese-ancient")
+gpt2_model.eval()  # Only if no training is required for GPT2 model
+gpt2_model.to(device)
+embedding_length = gpt2_model.transformer.wte.weight.shape[1]
+
+
+def get_tokenized_id(sentences):
+    """Tokenized a batch of sentences."""
+    input_ids = [tokenizer.encode(sentence, padding=True, truncation=True, return_tensors='pt').T for sentence in sentences]
+    input_ids = pad_sequence(input_ids, batch_first=True, padding_value=0).to(device)
+    return input_ids
+
+def get_embeddings(input_ids):
+    """Generate embeddings for a batch of sentences."""
+    with torch.no_grad():
+        embeddings = gpt2_model.transformer.wte(input_ids)
+    embeddings = embeddings.squeeze()
+    return embeddings
+
+
 # validation script
 def bleu_script(f):
-    ref_stem = hp.target_test
+    ref_stem = hp.target_data_c_m
     cmd = "{eval_script} {refs} {hyp}".format(
         eval_script=hp.eval_script, refs=ref_stem, hyp=f
     )
     p = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     if p.returncode > 0:
-        sys.stderr.write(err)
+        sys.stderr.write(err.decode('utf-8'))
         sys.exit(1)
     bleu = float(out)
     return bleu
@@ -76,25 +101,45 @@ def train():
     dec_voc = len(en2idx)
     writer = SummaryWriter()
     # Load data
-    X, Y = load_train_data()
+    X, Y, Sources, Targets = load_train_data()
     # calc total batch count
     num_batch = len(X) // hp.batch_size
-    model = AttModel(hp, enc_voc, dec_voc)
-    model.train()
-    model.to(device)
+    encoder = EncoderRNN(embedding_length, hp.hidden_size).to(device)
+    decoder = DecoderRNN(hp.embed_size, hp.hidden_size, dec_voc).to(device)
+    model = Seq2Seq(encoder, decoder)
     torch.backends.cudnn.benchmark = True  # may speed up Forward propagation
     if not os.path.exists(hp.model_dir):
         os.makedirs(hp.model_dir)
     optimizer = optim.Adam(model.parameters(), lr=hp.lr)
 
-    for epoch in range(1, hp.num_epochs + 1):
+    for epoch in range(0, hp.num_epochs):
         current_batches = 0
-        for index, current_index in get_batch_indices(len(X), hp.batch_size):
-            x_batch = torch.LongTensor(X[index]).to(device)
-            y_batch = torch.LongTensor(Y[index]).to(device)
+        model.train()
+        model.to(device)
+        for index, current_index in get_batch_indices(len(Sources), hp.batch_size):
+            x_batch = [Sources[i] for i in index]
+            # print(x_batch)
+            y_batch = [Targets[i] for i in index]
+            # y_batch = torch.LongTensor(Targets[index]).to(device)
+
+            input_ids = get_tokenized_id(x_batch)
+            # print("input_ids", input_ids.shape)
+            input_embeddings = get_embeddings(input_ids).detach()
+
+            # target_tokenized = [tokenizer(sentence, padding=True, truncation=True, return_tensors='pt').T for sentence in y_batch]
+            target_ids = get_tokenized_id(y_batch)
+            # print("target_id_beforesqeeze", target_ids.shape)
+            target_ids = target_ids.squeeze(dim=-1).detach()
 
             optimizer.zero_grad()
-            loss, _, acc = model(x_batch, y_batch)
+            # print("target_ids", target_ids.shape)
+            # print("input_embeddings", input_embeddings.shape)
+            if len(input_embeddings.shape) == 2:
+                input_embedding = input_embeddings.unsqueeze(0)
+            output = model(input_embeddings, target_ids[:, :-1])
+            # loss, _, acc = metric(output, y_batch)
+            pad_index = cn2idx['<PAD>']
+            loss = sequence_loss(output, target_ids, pad_index)
             loss.backward()
             optimizer.step()
 
@@ -106,11 +151,11 @@ def train():
                     scalar_value=loss.detach().cpu().numpy(),
                     global_step=global_batches,
                 )
-                writer.add_scalar(
-                    "./acc",
-                    scalar_value=acc.detach().cpu().numpy(),
-                    global_step=global_batches,
-                )
+                # writer.add_scalar(
+                #     "./acc",
+                #     scalar_value=acc.detach().cpu().numpy(),
+                #     global_step=global_batches,
+                # )
 
             if (
                 current_batches % 10 == 0
@@ -118,13 +163,14 @@ def train():
                 or current_batches == num_batch
             ):
                 logger.info(
-                    "Epoch: {} batch: {}/{}({:.2%}), loss: {:.6}, acc: {:.4}".format(
+                    # "Epoch: {} batch: {}/{}({:.2%}), loss: {:.6}, acc: {:.4}".format(
+                    "Epoch: {} batch: {}/{}({:.2%}), loss: {:.6}".format(
                         epoch,
                         current_batches,
                         num_batch,
                         current_batches / num_batch,
                         loss.data.item(),
-                        acc.data.item(),
+                        # acc.data.item(),
                     )
                 )
 
@@ -141,7 +187,7 @@ def train():
 
 def evaluate(model, epoch, writer, score_list):
     # Load data
-    X, Sources, Targets = load_test_data()
+    X, Y, Sources, Targets = load_test_data()
     cn2idx, idx2cn = load_cn_vocab()
     en2idx, idx2en = load_en_vocab()
 
@@ -158,34 +204,76 @@ def evaluate(model, epoch, writer, score_list):
 
     for i in range(len(X) // hp.batch_size_valid):
         # Get mini-batches
-        x = X[i * hp.batch_size_valid : (i + 1) * hp.batch_size_valid]
+        # x_batch = X[i * hp.batch_size_valid : (i + 1) * hp.batch_size_valid]
+        # y_batch = Y[i * hp.batch_size_valid : (i + 1) * hp.batch_size_valid]
         sources = Sources[i * hp.batch_size_valid : (i + 1) * hp.batch_size_valid]
         targets = Targets[i * hp.batch_size_valid : (i + 1) * hp.batch_size_valid]
 
         # Autoregressive inference
-        x_ = torch.LongTensor(x).to(device)
-        preds_t = torch.LongTensor(
-            np.zeros((hp.batch_size_valid, hp.maxlen), np.int32)
-        ).to(device)
-        preds = preds_t
-        _, _preds, _ = model(x_, preds)
-        preds = _preds.data.cpu().numpy()
+        input_ids = get_tokenized_id(sources)
+        input_embeddings = get_embeddings(input_ids)
+
+        # target_tokenized = [tokenizer(sentence, padding=True, truncation=True, return_tensors='pt').T for sentence in y_batch]
+        # target_ids = get_tokenized_id(y_batch)
+
+        # start_token = torch.tensor(101, hp.batch_size)
+        start_token = torch.tensor([101] * hp.batch_size_valid).unsqueeze(1).to(device)
+
+        # preds_t = torch.LongTensor(
+        #     np.zeros((hp.batch_size_valid, hp.maxlen), np.int32)
+        # ).to(device)
+        # preds = preds_t
+        # _, _preds, _ = model(x_, preds)
+
+        # hidden, cell = model.encoder.initHidden(hp.batch_size)
+        hidden, cell = model.encoder(input_embeddings)
+        
+        # Inference loop
+        generated_tokens = [start_token]
+        for _ in range(hp.maxlen):
+            last_token = generated_tokens[-1]  # (batch_size, 1)
+            outputs, (hidden, cell) = model.decoder(last_token, hidden, cell)
+            _, next_token = outputs.max(dim=2)  # Get the index of the max log-probability
+            # print("next_token", next_token.shape)
+            # next_token = next_token.squeeze(dim=1)  # (batch_size, 1)
+            # print("next_token_after", next_token.shape)
+            generated_tokens.append(next_token)
+        # generated_tokens = generated_tokens.squeeze(-1)
+        generated_tokens = torch.cat(generated_tokens, dim=-1)
+
+
+        # outputs = model(input_embeddings, start_token[:, :-1])
+        # print("outputs:", outputs)
+        # _, _preds = torch.max(outputs, -1)
+        # preds = _preds.data.cpu().numpy()
+        # print("preds:", preds)
 
         # prepare data for BLEU score
-        for source, target, pred in zip(sources, targets, preds):
-            got = " ".join(idx2en[idx] for idx in pred).split("</S>")[0].strip()
-            ref = target.split()
+        # print('targets: ', targets)
+        # print('preds: ', preds)
+        for source, target, pred in zip(sources, targets, generated_tokens):
+            # got = " ".join(idx2en[idx] for idx in pred).split("</S>")[0].strip()
+            got = " ".join(idx2en[idx] for idx in pred.cpu().numpy()).strip()
+            # print(got)
+            # ref = target.split()
+            ref = list(target)
             hypothesis = got.split()
+            # print(len(ref), len(hypothesis))
             if len(ref) > 3 and len(hypothesis) > 3:
                 list_of_refs.append([ref])
                 hypotheses.append(hypothesis)
+        # if len(list_of_refs) == 0 or len(hypotheses) == 0:
+        #     score_list.append([None, None, None, None, None, epoch])
+        #     return score_list
+            
 
     ix = np.random.randint(0, hp.batch_size_valid)
     sampling_result = []
     sampling_result.append(["Key", "Value"])
-    sampling_result.append(["Source", " ".join(idx2cn[idx] for idx in X[ix]).split("</S>")[0].strip()])
-    sampling_result.append(["Target", Targets[ix]])
-    sampling_result.append(["Predict", " ".join(idx2en[idx] for idx in preds[ix]).split("</S>")[0].strip()])
+    sampling_result.append(["Source", sources[ix]])
+    sampling_result.append(["Target", targets[ix]])
+    # sampling_result.append(["Predict", " ".join(idx2en[idx] for idx in preds[ix]).split("</S>")[0].strip()])
+    sampling_result.append(["Predict", " ".join(idx2en[idx] for idx in generated_tokens[ix].cpu().numpy()).strip()])
     sampling_table = AsciiTable(sampling_result)
     logger.info("===========sampling START===========")
     logger.info("\n" + str(sampling_table.table))
@@ -193,6 +281,7 @@ def evaluate(model, epoch, writer, score_list):
     # Calculate BLEU score
     hypotheses = [" ".join(x) for x in hypotheses]
 
+    # print(len(list_of_refs), len(hypotheses))
     p_tmp = tempfile.mktemp()
     f_tmp = open(p_tmp, "w")
     f_tmp.write("\n".join(hypotheses))

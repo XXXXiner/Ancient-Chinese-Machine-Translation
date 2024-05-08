@@ -1,0 +1,77 @@
+2024-05-05 15:25:46,680:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 32                                          |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 25                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 5                                           |
++------------------+---------------------------------------------+
+2024-05-05 15:25:51,421:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:25:51,527:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:25:51,583:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:25:51,611:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:25:51,616:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:25:51,686:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:25:51,856:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:25:55,253:INFO: Epoch: 0 batch: 3/3(100.00%), loss: 12.0726, acc: 0.0
+2024-05-05 15:26:00,885:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:26:00,941:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:26:00,970:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:26:00,973:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:26:01,061:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:26:01,316:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:26:01,508:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:26:01,563:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:26:01,590:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:26:01,594:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:26:01,695:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:26:01,849:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:26:02,033:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:26:02,091:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:26:02,132:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:26:02,136:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:26:02,202:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:26:02,390:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:26:02,555:INFO: ===========sampling START===========
+2024-05-05 15:26:02,555:INFO: 
++---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Key     | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
++---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source  | 後呼韓邪單于身入稱臣朝見郅支以爲呼韓邪破弱降漢不能自還即西收右地                                                                                                                                                                                                                                                                                                                                                                                          |
+| Target  | 後來呼韓邪單于親自到漢朝稱臣朝見宣帝郅支單于以爲呼韓邪衰敗虚弱投降了漢朝不能再回去了就向西收取匈奴右邊的地方                                                                                                                                                                                                                                                                                                                                              |
+| Predict | 卒伍 卒伍 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 儒季都羅 |
++---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2024-05-05 15:26:02,555:INFO: ===========sampling DONE===========
+2024-05-05 15:26:02,901:INFO: BLEU score for Epoch-0: 
++------------+-----------------------+------------------------+------------------------+-----------------------+
+| multi-bleu | bleu_1-gram           | bleu_2-gram            | bleu_3-gram            | bleu_4-gram           |
++------------+-----------------------+------------------------+------------------------+-----------------------+
+| 0.0        | 0.0008925914906277891 | 0.00019976258776797177 | 0.00011958240902729722 | 9.261715637231913e-05 |
++------------+-----------------------+------------------------+------------------------+-----------------------+

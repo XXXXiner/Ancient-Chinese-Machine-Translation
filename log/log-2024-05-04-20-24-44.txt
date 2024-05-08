@@ -1,0 +1,71 @@
+2024-05-04 20:24:44,460:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 32                                          |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 25                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 5                                           |
++------------------+---------------------------------------------+
+2024-05-04 20:24:49,943:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-04 20:24:50,095:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-04 20:24:50,168:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-04 20:24:50,201:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-04 20:24:50,207:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-04 20:24:50,373:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-04 20:24:50,621:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-04 20:25:13,892:INFO: Epoch: 0 batch: 3/3(100.00%), loss: 12.1296, acc: 0.0
+2024-05-04 20:25:20,150:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-04 20:25:20,263:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-04 20:25:20,414:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-04 20:25:20,420:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-04 20:25:20,692:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-04 20:25:21,166:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-04 20:25:23,257:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-04 20:25:23,377:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-04 20:25:23,416:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-04 20:25:23,420:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-04 20:25:23,495:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-04 20:25:23,801:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-04 20:25:25,103:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-04 20:25:25,337:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-04 20:25:25,477:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-04 20:25:25,482:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-04 20:25:25,566:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-04 20:25:25,862:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-04 20:25:27,203:INFO: ===========sampling START===========
+2024-05-04 20:25:27,204:INFO: 
++---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Key     | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
++---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source  | <UNK>                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Target  | 王莽因爲太后喜歡出來游玩觀光就在長畫宣設擺酒席用車駕請太后前去                                                                                                                                                                                                                                                                                                                                                                                                |
+| Predict | 闕樓 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 哈寶林邦 |
++---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2024-05-04 20:25:27,204:INFO: ===========sampling DONE===========

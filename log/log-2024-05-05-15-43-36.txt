@@ -1,0 +1,141 @@
+2024-05-05 15:43:36,804:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 32                                          |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 25                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 5                                           |
++------------------+---------------------------------------------+
+2024-05-05 15:43:41,640:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:43:41,729:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:43:41,794:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:41,833:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:41,838:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:43:41,902:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:43:42,070:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:43:45,388:INFO: Epoch: 0 batch: 3/3(100.00%), loss: 12.1215, acc: 0.0
+2024-05-05 15:43:51,077:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:43:51,132:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:51,162:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:51,166:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:43:51,274:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:43:51,529:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:43:51,719:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:43:51,776:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:51,801:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:51,804:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:43:51,872:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:43:52,025:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:43:52,211:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:43:52,262:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:52,290:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:52,294:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:43:52,362:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:43:52,521:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:43:52,685:INFO: ===========sampling START===========
+2024-05-05 15:43:52,686:INFO: 
++---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Key     | Value                                                                                                                                                                                                                                                     |
++---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source  | 湯爲人沈勇有大慮多策謀喜奇功每過城邑山川常登望                                                                                                                                                                                                            |
+| Target  | 陳湯爲人沉着勇敢有大謀有很多策略喜好建立卓越的功勛每次經過都城小鎮高山大河常常要爬到高處去看一看                                                                                                                                                          |
+| Predict | 皇榜 皇榜 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 急促 |
++---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2024-05-05 15:43:52,686:INFO: ===========sampling DONE===========
+2024-05-05 15:43:52,994:INFO: BLEU score for Epoch-0: 
++------------+-----------------------+-----------------------+-----------------------+-----------------------+
+| multi-bleu | bleu_1-gram           | bleu_2-gram           | bleu_3-gram           | bleu_4-gram           |
++------------+-----------------------+-----------------------+-----------------------+-----------------------+
+| 0.0        | 0.0009787472035794186 | 0.0002716564001376316 | 0.0001735695404890973 | 0.0001389764989716509 |
++------------+-----------------------+-----------------------+-----------------------+-----------------------+
+2024-05-05 15:43:54,049:INFO: Epoch: 1 batch: 3/3(100.00%), loss: 11.9685, acc: 0.4
+2024-05-05 15:43:58,825:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:43:58,880:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:58,904:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:58,908:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:43:58,976:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:43:59,132:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:43:59,327:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:43:59,387:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:59,411:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:59,415:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:43:59,481:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:43:59,632:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:43:59,822:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:43:59,877:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:59,908:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:43:59,911:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:43:59,978:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:44:00,141:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:44:00,306:INFO: ===========sampling START===========
+2024-05-05 15:44:00,306:INFO: 
++---------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+| Key     | Value                                                                                                                                            |
++---------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source  | 貳師將軍李廣利捐五萬之師靡億萬之費經四年之勞而塵獲駿馬三十匹雖斬宛王母鼓之首猶不足以復費其私罪惡甚多                                             |
+| Target  | 貳師將軍李廣利損失了五萬人的部隊花去了億萬的費用經歷了四年的勞苦却祇獲得三十匹駿馬雖然斬下了宛王母鼓的腦袋也不足以補償耗費而且他自己的罪惡也很多 |
+| Predict |                                                                                                                                                  |
++---------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+2024-05-05 15:44:00,306:INFO: ===========sampling DONE===========
+2024-05-05 15:44:00,533:INFO: BLEU score for Epoch-1: 
++------------+----------------------+----------------------+----------------------+-----------------------+
+| multi-bleu | bleu_1-gram          | bleu_2-gram          | bleu_3-gram          | bleu_4-gram           |
++------------+----------------------+----------------------+----------------------+-----------------------+
+| 0.0        | 0.004005340453938583 | 0.002675600248362606 | 0.002130771659679139 | 0.0019047187153303307 |
++------------+----------------------+----------------------+----------------------+-----------------------+
+2024-05-05 15:44:01,585:INFO: Epoch: 2 batch: 3/3(100.00%), loss: 11.7978, acc: 1.0
+2024-05-05 15:44:06,348:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:44:06,407:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:44:07,308:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:44:07,312:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:44:07,380:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:44:07,583:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:44:07,772:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:44:07,829:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:44:07,856:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:44:07,860:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:44:07,933:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:44:08,128:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:44:08,321:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-05 15:44:08,376:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:44:08,404:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-05 15:44:08,408:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-05 15:44:08,475:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-05 15:44:08,619:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-05 15:44:08,780:INFO: ===========sampling START===========
+2024-05-05 15:44:08,780:INFO: 
++---------+------------------------------------------------------------------------------------+
+| Key     | Value                                                                              |
++---------+------------------------------------------------------------------------------------+
+| Source  | 單于遣使問漢兵何以來應曰單于上書言居困厄願歸計强逸身入朝見                         |
+| Target  | 單于派使者來問漢朝軍隊爲何而來答道單于上書説現在處境困難願意歸附漢朝親自入漢朝朝見 |
+| Predict |                                                                                    |
++---------+------------------------------------------------------------------------------------+
+2024-05-05 15:44:08,780:INFO: ===========sampling DONE===========

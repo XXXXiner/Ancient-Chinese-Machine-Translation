@@ -1,0 +1,102 @@
+2024-05-03 19:17:46,499:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 48                                          |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 50                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 10                                          |
++------------------+---------------------------------------------+
+2024-05-03 19:17:59,335:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:17:59,504:DEBUG: https://s3.amazonaws.com:443 "HEAD /models.huggingface.co/bert/gpt2-vocab.json HTTP/1.1" 200 0
+2024-05-03 19:17:59,506:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:17:59,599:DEBUG: https://s3.amazonaws.com:443 "HEAD /models.huggingface.co/bert/gpt2-merges.txt HTTP/1.1" 200 0
+2024-05-03 19:17:59,600:INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-vocab.json from cache at /users/xzhao99/.cache/torch/transformers/f2808208f9bec2320371a9f5f891c184ae0b674ef866b79c58177067d15732dd.1512018be4ba4e8726e41b9145129dc30651ea4fec86aa61f4b9f40bf94eac71
+2024-05-03 19:17:59,600:INFO: loading file https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-merges.txt from cache at /users/xzhao99/.cache/torch/transformers/d629f792e430b3c76a1291bb2766b0a047e36fae0588f9dbc1ae51decdff691b.70bec105b4158ed9a1747fea67a43f5dee97855c64d62b6ec3742f4cfdb5feda
+2024-05-03 19:17:59,665:INFO: Adding [Begin] to the vocabulary
+2024-05-03 19:17:59,665:INFO: Adding [Stop] to the vocabulary
+2024-05-03 19:17:59,665:INFO: Assigning ['[Begin]', '[Stop]'] to the additional_special_tokens key of the tokenizer
+2024-05-03 19:17:59,668:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:17:59,759:DEBUG: https://s3.amazonaws.com:443 "HEAD /models.huggingface.co/bert/gpt2-config.json HTTP/1.1" 200 0
+2024-05-03 19:17:59,760:INFO: https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-config.json not found in cache or force_download set to True, downloading to /tmp/tmpufbx_51o
+2024-05-03 19:17:59,763:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:17:59,879:DEBUG: https://s3.amazonaws.com:443 "GET /models.huggingface.co/bert/gpt2-config.json HTTP/1.1" 200 665
+2024-05-03 19:17:59,881:INFO: copying /tmp/tmpufbx_51o to cache at /users/xzhao99/.cache/torch/transformers/4be02c5697d91738003fb1685c9872f284166aa32e061576bbe6aaeb95649fcf.db13c9bc9c7bdd738ec89e069621d88e05dc670366092d809a9cbcac6798e24e
+2024-05-03 19:17:59,886:INFO: creating metadata file for /users/xzhao99/.cache/torch/transformers/4be02c5697d91738003fb1685c9872f284166aa32e061576bbe6aaeb95649fcf.db13c9bc9c7bdd738ec89e069621d88e05dc670366092d809a9cbcac6798e24e
+2024-05-03 19:17:59,891:INFO: removing temp file /tmp/tmpufbx_51o
+2024-05-03 19:17:59,891:INFO: loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-config.json from cache at /users/xzhao99/.cache/torch/transformers/4be02c5697d91738003fb1685c9872f284166aa32e061576bbe6aaeb95649fcf.db13c9bc9c7bdd738ec89e069621d88e05dc670366092d809a9cbcac6798e24e
+2024-05-03 19:17:59,893:INFO: Model config {
+  "activation_function": "gelu_new",
+  "architectures": [
+    "GPT2LMHeadModel"
+  ],
+  "attn_pdrop": 0.1,
+  "bos_token_id": 50256,
+  "embd_pdrop": 0.1,
+  "eos_token_id": 50256,
+  "finetuning_task": null,
+  "initializer_range": 0.02,
+  "layer_norm_epsilon": 1e-05,
+  "model_type": "gpt2",
+  "n_ctx": 1024,
+  "n_embd": 768,
+  "n_head": 12,
+  "n_layer": 12,
+  "n_positions": 1024,
+  "num_labels": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pruned_heads": {},
+  "resid_pdrop": 0.1,
+  "summary_activation": null,
+  "summary_first_dropout": 0.1,
+  "summary_proj_to_labels": true,
+  "summary_type": "cls_index",
+  "summary_use_proj": true,
+  "task_specific_params": {
+    "text-generation": {
+      "do_sample": true,
+      "max_length": 50
+    }
+  },
+  "torchscript": false,
+  "use_bfloat16": false,
+  "vocab_size": 50257
+}
+
+2024-05-03 19:17:59,893:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:17:59,973:DEBUG: https://s3.amazonaws.com:443 "HEAD /models.huggingface.co/bert/gpt2-pytorch_model.bin HTTP/1.1" 200 0
+2024-05-03 19:17:59,974:INFO: https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-pytorch_model.bin not found in cache or force_download set to True, downloading to /tmp/tmpj_frgup5
+2024-05-03 19:17:59,975:DEBUG: Starting new HTTPS connection (1): s3.amazonaws.com:443
+2024-05-03 19:18:00,117:DEBUG: https://s3.amazonaws.com:443 "GET /models.huggingface.co/bert/gpt2-pytorch_model.bin HTTP/1.1" 200 548118077
+2024-05-03 19:18:06,937:INFO: copying /tmp/tmpj_frgup5 to cache at /users/xzhao99/.cache/torch/transformers/4295d67f022061768f4adc386234dbdb781c814c39662dd1662221c309962c55.778cf36f5c4e5d94c8cd9cefcf2a580c8643570eb327f0d4a1f007fab2acbdf1
+2024-05-03 19:18:07,408:INFO: creating metadata file for /users/xzhao99/.cache/torch/transformers/4295d67f022061768f4adc386234dbdb781c814c39662dd1662221c309962c55.778cf36f5c4e5d94c8cd9cefcf2a580c8643570eb327f0d4a1f007fab2acbdf1
+2024-05-03 19:18:07,413:INFO: removing temp file /tmp/tmpj_frgup5
+2024-05-03 19:18:07,454:INFO: loading weights file https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-pytorch_model.bin from cache at /users/xzhao99/.cache/torch/transformers/4295d67f022061768f4adc386234dbdb781c814c39662dd1662221c309962c55.778cf36f5c4e5d94c8cd9cefcf2a580c8643570eb327f0d4a1f007fab2acbdf1
