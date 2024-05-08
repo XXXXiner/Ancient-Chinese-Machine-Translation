@@ -22,3 +22,10 @@ Also, you may need to use a useful tokenization tool [HanLP](https://github.com/
 ```
 pip install hanlp
 ```
+
+```
+pip install terminaltables
+pip install torch torchvision matplotlib tensorboard
+pip install tqdm
+pip install transformers
+```

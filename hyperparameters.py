@@ -26,11 +26,7 @@ class Hyperparams:
     # # training
     embed_size = 256
     hidden_size = 512
-<<<<<<< HEAD
     batch_size = 4  # alias = N
-=======
-    batch_size = 48  # alias = N
->>>>>>> 8ff6e09a5efe28d57101f52814d136ef506d144f
     batch_size_valid = 32
     lr = (
         0.0001  # learning rate. In paper, learning rate is adjusted to the global step.
@@ -44,18 +40,10 @@ class Hyperparams:
     min_cnt = 0  # words whose occurred less than min_cnt are encoded as <UNK>.
     hidden_units = 512  # alias = C
     num_blocks = 12  # number of encoder/decoder blocks
-<<<<<<< HEAD
     num_epochs = 25
-=======
-    num_epochs = 50
->>>>>>> 8ff6e09a5efe28d57101f52814d136ef506d144f
     num_heads = 8
     dropout_rate = 0.4
     sinusoid = False  # If True, use sinusoid. If false, positional embedding.
     eval_epoch = 1  # epoch of model for eval
     eval_script = 'scripts/validate.sh'
-<<<<<<< HEAD
     check_frequency = 5  # checkpoint frequency
-=======
-    check_frequency = 10  # checkpoint frequency
->>>>>>> 8ff6e09a5efe28d57101f52814d136ef506d144f

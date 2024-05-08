@@ -11,11 +11,7 @@ from torch.utils.tensorboard import SummaryWriter
 from torch.nn.utils.rnn import pad_sequence
 from terminaltables import AsciiTable
 
-<<<<<<< HEAD
 from model_arch.Rnn import EncoderRNN, DecoderRNN, Seq2Seq, sequence_loss
-=======
-from model_arch.Rnn import EncoderRNN, DecoderRNN, Seq2Seq, metric
->>>>>>> 8ff6e09a5efe28d57101f52814d136ef506d144f
 from model_arch.AttModel import AttModel
 from bleu import bleu
 from data_load import (
@@ -28,8 +24,6 @@ from data_load import (
 from hyperparameters import Hyperparams as hp
 from utils import get_logger
 from transformers import BertTokenizer, GPT2LMHeadModel, GPT2Tokenizer
-
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 # device
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -69,11 +63,7 @@ def get_embeddings(input_ids):
 
 # validation script
 def bleu_script(f):
-<<<<<<< HEAD
     ref_stem = hp.target_data_c_m
-=======
-    ref_stem = hp.target_test_c_m
->>>>>>> 8ff6e09a5efe28d57101f52814d136ef506d144f
     cmd = "{eval_script} {refs} {hyp}".format(
         eval_script=hp.eval_script, refs=ref_stem, hyp=f
     )
@@ -114,41 +104,9 @@ def train():
     X, Y, Sources, Targets = load_train_data()
     # calc total batch count
     num_batch = len(X) // hp.batch_size
-<<<<<<< HEAD
     encoder = EncoderRNN(embedding_length, hp.hidden_size).to(device)
     decoder = DecoderRNN(hp.embed_size, hp.hidden_size, dec_voc).to(device)
     model = Seq2Seq(encoder, decoder)
-=======
-
-    tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-    custom_tokens = {'additional_special_tokens': ['[Begin]', '[Stop]']}
-    tokenizer.add_special_tokens(custom_tokens)
-
-    gpt2_model = GPT2LMHeadModel.from_pretrained("uer/gpt2-chinese-ancient")
-    gpt2_model.resize_token_embeddings(len(tokenizer))
-    gpt2_model.eval()
-    gpt2_model.to(device)
-
-    # Tokenize each sentence in Sources, ensuring they are padded to the same length
-    input_ids = [tokenizer.encode(sentence, max_length=1024, truncation=True, add_special_tokens=True, return_tensors='pt').T for sentence in Sources]
-    input_ids = pad_sequence(input_ids, batch_first=True, padding_value=0).to(device)
-
-    embeddings = gpt2_model.transformer.wte
-    embeddings.requires_grad_(False)  # Freeze the embeddings
-
-    with torch.no_grad():  # Prevent gradients from being computed
-        input_embeddings = embeddings(input_ids)
-
-    embedding_length = model.transformer.wte.weight.shape[1]
-
-    # model = AttModel(hp, enc_voc, dec_voc)
-    # encoder = EncoderRNN(enc_voc, hp.embed_size, hp.hidden_size).to(device)
-    encoder = EncoderRNN(embedding_length, hp.hidden_size).to(device)
-    decoder = DecoderRNN(hp.embed_size, hp.hidden_size, dec_voc).to(device)
-    model = Seq2Seq(encoder, decoder)
-    model.train()
-    model.to(device)
->>>>>>> 8ff6e09a5efe28d57101f52814d136ef506d144f
     torch.backends.cudnn.benchmark = True  # may speed up Forward propagation
     if not os.path.exists(hp.model_dir):
         os.makedirs(hp.model_dir)
@@ -156,7 +114,6 @@ def train():
 
     for epoch in range(0, hp.num_epochs):
         current_batches = 0
-<<<<<<< HEAD
         model.train()
         model.to(device)
         for index, current_index in get_batch_indices(len(Sources), hp.batch_size):
@@ -183,15 +140,6 @@ def train():
             # loss, _, acc = metric(output, y_batch)
             pad_index = cn2idx['<PAD>']
             loss = sequence_loss(output, target_ids, pad_index)
-=======
-        for index, current_index in get_batch_indices(len(X), hp.batch_size):
-            x_batch = torch.LongTensor(input_embeddings[index]).to(device)
-            y_batch = torch.LongTensor(Y[index]).to(device)
-
-            optimizer.zero_grad()
-            output = model(x_batch, y_batch)
-            loss, _, acc = metric(output, y_batch)
->>>>>>> 8ff6e09a5efe28d57101f52814d136ef506d144f
             loss.backward()
             optimizer.step()
 
