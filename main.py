@@ -262,7 +262,6 @@ def evaluate(model, epoch, writer, score_list):
         targets = Targets[i * hp.batch_size_valid : (i + 1) * hp.batch_size_valid]
 
         # Autoregressive inference
-<<<<<<< HEAD
         input_ids = get_tokenized_id(sources)
         input_embeddings = get_embeddings(input_ids)
 
@@ -300,17 +299,6 @@ def evaluate(model, epoch, writer, score_list):
         # _, _preds = torch.max(outputs, -1)
         # preds = _preds.data.cpu().numpy()
         # print("preds:", preds)
-=======
-        x_ = torch.LongTensor(x).to(device)
-        preds_t = torch.LongTensor(
-            np.zeros((hp.batch_size_valid, hp.maxlen), np.int32)
-        ).to(device)
-        preds = preds_t
-        # _, _preds, _ = model(x_, preds)
-        outputs = model(x_, preds)
-        _, _preds = torch.max(outputs, -1)
-        preds = _preds.data.cpu().numpy()
->>>>>>> 8ff6e09a5efe28d57101f52814d136ef506d144f
 
         # prepare data for BLEU score
         # print('targets: ', targets)
