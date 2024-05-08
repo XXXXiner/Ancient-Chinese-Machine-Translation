@@ -26,7 +26,7 @@ class Hyperparams:
     # # training
     embed_size = 256
     hidden_size = 512
-    batch_size = 4  # alias = N
+    batch_size = 8  # alias = N
     batch_size_valid = 32
     lr = (
         0.0001  # learning rate. In paper, learning rate is adjusted to the global step.

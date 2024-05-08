@@ -1,0 +1,199 @@
+2024-05-07 23:42:51,055:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-07 23:42:51,122:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-07 23:42:51,214:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-07 23:42:51,242:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-07 23:42:51,248:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-07 23:42:51,311:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-07 23:42:51,462:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0
+2024-05-07 23:42:51,735:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 8                                           |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 25                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 5                                           |
++------------------+---------------------------------------------+
+2024-05-07 23:43:01,358:INFO: Epoch: 0 batch: 10/12500(0.08%), loss: 12.1601
+2024-05-07 23:43:02,076:INFO: Epoch: 0 batch: 20/12500(0.16%), loss: 12.0511
+2024-05-07 23:43:02,912:INFO: Epoch: 0 batch: 30/12500(0.24%), loss: 11.6652
+2024-05-07 23:43:03,647:INFO: Epoch: 0 batch: 40/12500(0.32%), loss: 10.7246
+2024-05-07 23:43:04,969:INFO: Epoch: 0 batch: 50/12500(0.40%), loss: 9.54778
+2024-05-07 23:43:05,713:INFO: Epoch: 0 batch: 60/12500(0.48%), loss: 8.28471
+2024-05-07 23:43:06,349:INFO: Epoch: 0 batch: 70/12500(0.56%), loss: 7.6928
+2024-05-07 23:43:07,082:INFO: Epoch: 0 batch: 80/12500(0.64%), loss: 7.38142
+2024-05-07 23:43:08,031:INFO: Epoch: 0 batch: 90/12500(0.72%), loss: 7.10893
+2024-05-07 23:43:09,505:INFO: Epoch: 0 batch: 100/12500(0.80%), loss: 7.09613
+2024-05-07 23:43:10,249:INFO: Epoch: 0 batch: 110/12500(0.88%), loss: 6.93619
+2024-05-07 23:43:10,898:INFO: Epoch: 0 batch: 120/12500(0.96%), loss: 6.90561
+2024-05-07 23:43:11,968:INFO: Epoch: 0 batch: 130/12500(1.04%), loss: 7.16284
+2024-05-07 23:43:12,659:INFO: Epoch: 0 batch: 140/12500(1.12%), loss: 6.83617
+2024-05-07 23:43:13,790:INFO: Epoch: 0 batch: 150/12500(1.20%), loss: 6.88287
+2024-05-07 23:43:14,383:INFO: Epoch: 0 batch: 160/12500(1.28%), loss: 6.75235
+2024-05-07 23:43:15,089:INFO: Epoch: 0 batch: 170/12500(1.36%), loss: 7.02463
+2024-05-07 23:43:16,051:INFO: Epoch: 0 batch: 180/12500(1.44%), loss: 6.4593
+2024-05-07 23:43:16,686:INFO: Epoch: 0 batch: 190/12500(1.52%), loss: 6.69673
+2024-05-07 23:43:17,507:INFO: Epoch: 0 batch: 200/12500(1.60%), loss: 6.95211
+2024-05-07 23:43:18,511:INFO: Epoch: 0 batch: 210/12500(1.68%), loss: 6.83237
+2024-05-07 23:43:19,160:INFO: Epoch: 0 batch: 220/12500(1.76%), loss: 6.56947
+2024-05-07 23:43:19,929:INFO: Epoch: 0 batch: 230/12500(1.84%), loss: 6.83959
+2024-05-07 23:43:20,947:INFO: Epoch: 0 batch: 240/12500(1.92%), loss: 7.00422
+2024-05-07 23:43:21,825:INFO: Epoch: 0 batch: 250/12500(2.00%), loss: 6.83997
+2024-05-07 23:43:22,849:INFO: Epoch: 0 batch: 260/12500(2.08%), loss: 6.77928
+2024-05-07 23:43:23,597:INFO: Epoch: 0 batch: 270/12500(2.16%), loss: 6.8337
+2024-05-07 23:43:24,524:INFO: Epoch: 0 batch: 280/12500(2.24%), loss: 6.96896
+2024-05-07 23:43:25,393:INFO: Epoch: 0 batch: 290/12500(2.32%), loss: 7.03309
+2024-05-07 23:43:26,298:INFO: Epoch: 0 batch: 300/12500(2.40%), loss: 6.9706
+2024-05-07 23:43:26,961:INFO: Epoch: 0 batch: 310/12500(2.48%), loss: 6.79879
+2024-05-07 23:43:27,751:INFO: Epoch: 0 batch: 320/12500(2.56%), loss: 7.04341
+2024-05-07 23:43:29,115:INFO: Epoch: 0 batch: 330/12500(2.64%), loss: 6.81849
+2024-05-07 23:43:30,019:INFO: Epoch: 0 batch: 340/12500(2.72%), loss: 6.88956
+2024-05-07 23:43:30,900:INFO: Epoch: 0 batch: 350/12500(2.80%), loss: 6.79764
+2024-05-07 23:43:32,019:INFO: Epoch: 0 batch: 360/12500(2.88%), loss: 6.89148
+2024-05-07 23:43:32,991:INFO: Epoch: 0 batch: 370/12500(2.96%), loss: 7.56881
+2024-05-07 23:43:33,652:INFO: Epoch: 0 batch: 380/12500(3.04%), loss: 6.67667
+2024-05-07 23:43:34,646:INFO: Epoch: 0 batch: 390/12500(3.12%), loss: 7.35312
+2024-05-07 23:43:35,819:INFO: Epoch: 0 batch: 400/12500(3.20%), loss: 6.74747
+2024-05-07 23:43:36,663:INFO: Epoch: 0 batch: 410/12500(3.28%), loss: 6.85677
+2024-05-07 23:43:37,703:INFO: Epoch: 0 batch: 420/12500(3.36%), loss: 6.80326
+2024-05-07 23:43:38,482:INFO: Epoch: 0 batch: 430/12500(3.44%), loss: 6.75459
+2024-05-07 23:43:39,599:INFO: Epoch: 0 batch: 440/12500(3.52%), loss: 6.53917
+2024-05-07 23:43:40,387:INFO: Epoch: 0 batch: 450/12500(3.60%), loss: 6.86719
+2024-05-07 23:43:41,370:INFO: Epoch: 0 batch: 460/12500(3.68%), loss: 6.74065
+2024-05-07 23:43:42,071:INFO: Epoch: 0 batch: 470/12500(3.76%), loss: 6.8875
+2024-05-07 23:43:42,671:INFO: Epoch: 0 batch: 480/12500(3.84%), loss: 6.79356
+2024-05-07 23:43:43,655:INFO: Epoch: 0 batch: 490/12500(3.92%), loss: 6.59763
+2024-05-07 23:43:44,603:INFO: Epoch: 0 batch: 500/12500(4.00%), loss: 6.76797
+2024-05-07 23:43:45,308:INFO: Epoch: 0 batch: 510/12500(4.08%), loss: 7.14249
+2024-05-07 23:43:45,875:INFO: Epoch: 0 batch: 520/12500(4.16%), loss: 6.67016
+2024-05-07 23:43:46,635:INFO: Epoch: 0 batch: 530/12500(4.24%), loss: 6.74622
+2024-05-07 23:43:47,818:INFO: Epoch: 0 batch: 540/12500(4.32%), loss: 6.68235
+2024-05-07 23:43:49,163:INFO: Epoch: 0 batch: 550/12500(4.40%), loss: 7.01596
+2024-05-07 23:43:49,904:INFO: Epoch: 0 batch: 560/12500(4.48%), loss: 6.61043
+2024-05-07 23:43:50,761:INFO: Epoch: 0 batch: 570/12500(4.56%), loss: 7.0899
+2024-05-07 23:43:51,725:INFO: Epoch: 0 batch: 580/12500(4.64%), loss: 6.56421
+2024-05-07 23:43:52,487:INFO: Epoch: 0 batch: 590/12500(4.72%), loss: 6.78049
+2024-05-07 23:43:53,638:INFO: Epoch: 0 batch: 600/12500(4.80%), loss: 6.71054
+2024-05-07 23:43:54,476:INFO: Epoch: 0 batch: 610/12500(4.88%), loss: 6.80486
+2024-05-07 23:43:55,701:INFO: Epoch: 0 batch: 620/12500(4.96%), loss: 7.09746
+2024-05-07 23:43:56,564:INFO: Epoch: 0 batch: 630/12500(5.04%), loss: 6.79469
+2024-05-07 23:43:57,365:INFO: Epoch: 0 batch: 640/12500(5.12%), loss: 6.95871
+2024-05-07 23:43:58,263:INFO: Epoch: 0 batch: 650/12500(5.20%), loss: 6.65188
+2024-05-07 23:43:59,380:INFO: Epoch: 0 batch: 660/12500(5.28%), loss: 6.72065
+2024-05-07 23:44:00,366:INFO: Epoch: 0 batch: 670/12500(5.36%), loss: 6.66768
+2024-05-07 23:44:01,072:INFO: Epoch: 0 batch: 680/12500(5.44%), loss: 6.86969
+2024-05-07 23:44:02,161:INFO: Epoch: 0 batch: 690/12500(5.52%), loss: 6.35547
+2024-05-07 23:44:03,006:INFO: Epoch: 0 batch: 700/12500(5.60%), loss: 6.93959
+2024-05-07 23:44:03,647:INFO: Epoch: 0 batch: 710/12500(5.68%), loss: 6.71001
+2024-05-07 23:44:04,573:INFO: Epoch: 0 batch: 720/12500(5.76%), loss: 6.45528
+2024-05-07 23:44:05,227:INFO: Epoch: 0 batch: 730/12500(5.84%), loss: 6.41288
+2024-05-07 23:44:06,231:INFO: Epoch: 0 batch: 740/12500(5.92%), loss: 6.38597
+2024-05-07 23:44:06,994:INFO: Epoch: 0 batch: 750/12500(6.00%), loss: 6.62895
+2024-05-07 23:44:08,054:INFO: Epoch: 0 batch: 760/12500(6.08%), loss: 6.95103
+2024-05-07 23:44:08,691:INFO: Epoch: 0 batch: 770/12500(6.16%), loss: 6.59992
+2024-05-07 23:44:09,531:INFO: Epoch: 0 batch: 780/12500(6.24%), loss: 6.29835
+2024-05-07 23:44:10,620:INFO: Epoch: 0 batch: 790/12500(6.32%), loss: 6.52584
+2024-05-07 23:44:11,393:INFO: Epoch: 0 batch: 800/12500(6.40%), loss: 6.82008
+2024-05-07 23:44:12,154:INFO: Epoch: 0 batch: 810/12500(6.48%), loss: 6.6998
+2024-05-07 23:44:13,109:INFO: Epoch: 0 batch: 820/12500(6.56%), loss: 6.69805
+2024-05-07 23:44:14,004:INFO: Epoch: 0 batch: 830/12500(6.64%), loss: 6.7253
+2024-05-07 23:44:15,000:INFO: Epoch: 0 batch: 840/12500(6.72%), loss: 6.64122
+2024-05-07 23:44:15,680:INFO: Epoch: 0 batch: 850/12500(6.80%), loss: 6.38857
+2024-05-07 23:44:16,525:INFO: Epoch: 0 batch: 860/12500(6.88%), loss: 6.60853
+2024-05-07 23:44:17,394:INFO: Epoch: 0 batch: 870/12500(6.96%), loss: 6.45357
+2024-05-07 23:44:18,231:INFO: Epoch: 0 batch: 880/12500(7.04%), loss: 6.68001
+2024-05-07 23:44:19,584:INFO: Epoch: 0 batch: 890/12500(7.12%), loss: 6.60031
+2024-05-07 23:44:20,757:INFO: Epoch: 0 batch: 900/12500(7.20%), loss: 7.00279
+2024-05-07 23:44:21,817:INFO: Epoch: 0 batch: 910/12500(7.28%), loss: 7.15833
+2024-05-07 23:44:22,633:INFO: Epoch: 0 batch: 920/12500(7.36%), loss: 6.78116
+2024-05-07 23:44:23,522:INFO: Epoch: 0 batch: 930/12500(7.44%), loss: 6.41348
+2024-05-07 23:44:24,070:INFO: Epoch: 0 batch: 940/12500(7.52%), loss: 6.56404
+2024-05-07 23:44:25,322:INFO: Epoch: 0 batch: 950/12500(7.60%), loss: 7.14179
+2024-05-07 23:44:26,521:INFO: Epoch: 0 batch: 960/12500(7.68%), loss: 6.64339
+2024-05-07 23:44:27,656:INFO: Epoch: 0 batch: 970/12500(7.76%), loss: 6.66341
+2024-05-07 23:44:28,273:INFO: Epoch: 0 batch: 980/12500(7.84%), loss: 6.86986
+2024-05-07 23:44:29,385:INFO: Epoch: 0 batch: 990/12500(7.92%), loss: 6.5492
+2024-05-07 23:44:30,332:INFO: Epoch: 0 batch: 1000/12500(8.00%), loss: 6.5981
+2024-05-07 23:44:31,474:INFO: Epoch: 0 batch: 1010/12500(8.08%), loss: 6.75348
+2024-05-07 23:44:32,584:INFO: Epoch: 0 batch: 1020/12500(8.16%), loss: 6.55704
+2024-05-07 23:44:33,279:INFO: Epoch: 0 batch: 1030/12500(8.24%), loss: 6.58495
+2024-05-07 23:44:34,084:INFO: Epoch: 0 batch: 1040/12500(8.32%), loss: 7.20078
+2024-05-07 23:44:34,617:INFO: Epoch: 0 batch: 1050/12500(8.40%), loss: 6.76438
+2024-05-07 23:44:35,477:INFO: Epoch: 0 batch: 1060/12500(8.48%), loss: 6.38531
+2024-05-07 23:44:36,111:INFO: Epoch: 0 batch: 1070/12500(8.56%), loss: 6.66461
+2024-05-07 23:44:37,022:INFO: Epoch: 0 batch: 1080/12500(8.64%), loss: 7.13079
+2024-05-07 23:44:37,637:INFO: Epoch: 0 batch: 1090/12500(8.72%), loss: 6.50681
+2024-05-07 23:44:38,483:INFO: Epoch: 0 batch: 1100/12500(8.80%), loss: 6.70157
+2024-05-07 23:44:39,260:INFO: Epoch: 0 batch: 1110/12500(8.88%), loss: 6.7715
+2024-05-07 23:44:40,080:INFO: Epoch: 0 batch: 1120/12500(8.96%), loss: 6.68564
+2024-05-07 23:44:40,907:INFO: Epoch: 0 batch: 1130/12500(9.04%), loss: 6.59368
+2024-05-07 23:44:42,115:INFO: Epoch: 0 batch: 1140/12500(9.12%), loss: 6.80388
+2024-05-07 23:44:42,700:INFO: Epoch: 0 batch: 1150/12500(9.20%), loss: 6.42641
+2024-05-07 23:44:43,323:INFO: Epoch: 0 batch: 1160/12500(9.28%), loss: 6.83667
+2024-05-07 23:44:44,057:INFO: Epoch: 0 batch: 1170/12500(9.36%), loss: 6.78698
+2024-05-07 23:44:44,821:INFO: Epoch: 0 batch: 1180/12500(9.44%), loss: 6.81645
+2024-05-07 23:44:45,614:INFO: Epoch: 0 batch: 1190/12500(9.52%), loss: 7.04592
+2024-05-07 23:44:46,585:INFO: Epoch: 0 batch: 1200/12500(9.60%), loss: 6.67683
+2024-05-07 23:44:47,177:INFO: Epoch: 0 batch: 1210/12500(9.68%), loss: 6.7417
+2024-05-07 23:44:47,827:INFO: Epoch: 0 batch: 1220/12500(9.76%), loss: 6.70501
+2024-05-07 23:44:48,696:INFO: Epoch: 0 batch: 1230/12500(9.84%), loss: 6.88965
+2024-05-07 23:44:49,669:INFO: Epoch: 0 batch: 1240/12500(9.92%), loss: 6.55168
+2024-05-07 23:44:50,527:INFO: Epoch: 0 batch: 1250/12500(10.00%), loss: 6.83007
+2024-05-07 23:44:51,332:INFO: Epoch: 0 batch: 1260/12500(10.08%), loss: 6.35625
+2024-05-07 23:44:52,256:INFO: Epoch: 0 batch: 1270/12500(10.16%), loss: 6.49457
+2024-05-07 23:44:53,157:INFO: Epoch: 0 batch: 1280/12500(10.24%), loss: 6.69467
+2024-05-07 23:44:54,346:INFO: Epoch: 0 batch: 1290/12500(10.32%), loss: 6.53232
+2024-05-07 23:44:55,175:INFO: Epoch: 0 batch: 1300/12500(10.40%), loss: 6.59012
+2024-05-07 23:44:55,744:INFO: Epoch: 0 batch: 1310/12500(10.48%), loss: 6.64306
+2024-05-07 23:44:56,592:INFO: Epoch: 0 batch: 1320/12500(10.56%), loss: 6.72843
+2024-05-07 23:44:57,545:INFO: Epoch: 0 batch: 1330/12500(10.64%), loss: 6.81781
+2024-05-07 23:44:58,514:INFO: Epoch: 0 batch: 1340/12500(10.72%), loss: 6.90917
+2024-05-07 23:44:59,208:INFO: Epoch: 0 batch: 1350/12500(10.80%), loss: 6.80561
+2024-05-07 23:44:59,978:INFO: Epoch: 0 batch: 1360/12500(10.88%), loss: 6.67983
+2024-05-07 23:45:00,677:INFO: Epoch: 0 batch: 1370/12500(10.96%), loss: 6.67813
+2024-05-07 23:45:01,515:INFO: Epoch: 0 batch: 1380/12500(11.04%), loss: 6.84326
+2024-05-07 23:45:02,496:INFO: Epoch: 0 batch: 1390/12500(11.12%), loss: 6.80523
+2024-05-07 23:45:03,525:INFO: Epoch: 0 batch: 1400/12500(11.20%), loss: 6.73081
+2024-05-07 23:45:04,364:INFO: Epoch: 0 batch: 1410/12500(11.28%), loss: 6.54545
+2024-05-07 23:45:05,128:INFO: Epoch: 0 batch: 1420/12500(11.36%), loss: 6.64912
+2024-05-07 23:45:05,955:INFO: Epoch: 0 batch: 1430/12500(11.44%), loss: 6.55927
+2024-05-07 23:45:07,091:INFO: Epoch: 0 batch: 1440/12500(11.52%), loss: 6.63858
+2024-05-07 23:45:07,750:INFO: Epoch: 0 batch: 1450/12500(11.60%), loss: 6.45842
+2024-05-07 23:45:08,661:INFO: Epoch: 0 batch: 1460/12500(11.68%), loss: 6.12879
+2024-05-07 23:45:09,590:INFO: Epoch: 0 batch: 1470/12500(11.76%), loss: 6.4211
+2024-05-07 23:45:10,478:INFO: Epoch: 0 batch: 1480/12500(11.84%), loss: 6.54649
+2024-05-07 23:45:11,834:INFO: Epoch: 0 batch: 1490/12500(11.92%), loss: 6.22826
+2024-05-07 23:45:13,462:INFO: Epoch: 0 batch: 1500/12500(12.00%), loss: 6.7713
+2024-05-07 23:45:14,894:INFO: Epoch: 0 batch: 1510/12500(12.08%), loss: 6.78986
+2024-05-07 23:45:15,708:INFO: Epoch: 0 batch: 1520/12500(12.16%), loss: 6.38179
+2024-05-07 23:45:16,575:INFO: Epoch: 0 batch: 1530/12500(12.24%), loss: 6.40389
+2024-05-07 23:45:17,232:INFO: Epoch: 0 batch: 1540/12500(12.32%), loss: 6.46641
+2024-05-07 23:45:18,071:INFO: Epoch: 0 batch: 1550/12500(12.40%), loss: 6.57582
+2024-05-07 23:45:19,148:INFO: Epoch: 0 batch: 1560/12500(12.48%), loss: 6.11538
+2024-05-07 23:45:19,968:INFO: Epoch: 0 batch: 1570/12500(12.56%), loss: 6.54683
